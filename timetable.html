@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+    <div>
+        <h1>이번주 시간표</h1>
+
+        <div class="search-wrap">
+            <div>
+                <label for="grade-input">학년</label>
+                <input id="grade-input" type="number" value="1" min="1" max="3" onchange="fetchTimetable()">
+            </div>
+            <div>
+                <label for="classNm-input">반</label>
+                <input id="classNm-input" type="number" value="1" min="1" onchange="fetchTimetable()">
+            </div>
+        </div>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+        </tr>
+        </thead>
+        <tbody id="timetable-body"></tbody>
+    </table>
+</div>
+</body>
+</html>
