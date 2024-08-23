@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>장영실</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
     <script src="js/script.js"></script>
@@ -11,33 +11,42 @@
 </head>
 <body>
 <div class="wrap">
-    <div>
-        <h1>이번주 시간표</h1>
+    <header>
+        <div><a href="home.html">HOME</a></div>
+        <div>홍길동 - 대구소프트웨어마이스터고등학교</div>
+    </header>
+    <main>
+        <div>
+            <h1 style="text-align: center">이번주 시간표</h1>
 
-        <div class="search-wrap">
-            <div>
-                <label for="grade-input">학년</label>
-                <input id="grade-input" type="number" value="1" min="1" max="3" onchange="fetchTimetable()">
-            </div>
-            <div>
-                <label for="classNm-input">반</label>
-                <input id="classNm-input" type="number" value="1" min="1" onchange="fetchTimetable()">
+            <div class="search-wrap">
+                <div>
+                    <label for="grade-input">학년</label>
+                    <input id="grade-input" type="number" value="1" min="1" max="3" onchange="fetchTimetable()" style="width: 50px">
+                </div>
+                <div>
+                    <label for="classNm-input">반</label>
+                    <input id="classNm-input" type="number" value="1" min="1" onchange="fetchTimetable()" style="width: 50px">
+                </div>
             </div>
         </div>
-    </div>
-    <table>
-        <thead>
-        <tr>
-            <th></th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-        </tr>
-        </thead>
-        <tbody id="timetable-body"></tbody>
-    </table>
+        <table class="timetable">
+            <thead>
+            <tr>
+                <th></th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
+            </thead>
+            <tbody id="timetable-body"></tbody>
+        </table>
+    </main>
 </div>
+<script>
+  fetchTimetable();
+</script>
 </body>
 </html>

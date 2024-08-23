@@ -1,4 +1,48 @@
-const API_SERVER_URL = "https://jangyoungsil-api-egweo.run.goorm.site";
+const API_SERVER_URL = "http://localhost:3000"; // "https://jangyoungsil-api-egweo.run.goorm.site";
+
+async function fetchMealList() {
+  const year = targetDate.getFullYear();
+  const month = ("0" + (targetDate.getMonth() + 1)).slice(-2);
+  const date = ("0" + (targetDate.getDate() + 1)).slice(-2);
+
+  document.getElementById('target-date').textContent = year + '-' + month + '-' + date + ' 급식';
+
+  const mealList = document.getElementById('meal-list');
+  mealList.textContent = "";
+
+  const params = [];
+  params.areaCode = 'D10';
+  params.schoolCode = '7240454';
+  params.date = year + month + date;
+
+  const data = await getAPI('/nice/meal', params);
+
+  if (data.length === 0) {
+    const node = document.createElement('p');
+    node.textContent = '데이터가 없습니다.';
+
+    mealList.appendChild(node);
+  }
+  else {
+    data.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      const title = document.createElement('h3');
+      title.textContent = item.scheduleNm;
+      card.appendChild(title);
+
+      const content = document.createElement('p');
+      content.textContent = item.dishNm;
+      content.style.whiteSpace = 'pre-line'
+      content.style.marginTop = '50px';
+      content.style.marginBottom = '150px';
+      card.appendChild(content);
+
+      mealList.appendChild(card);
+    });
+  }
+}
 
 async function fetchTimetable() {
   const params = [];

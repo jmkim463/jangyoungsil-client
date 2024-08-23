@@ -5,69 +5,20 @@
     <title>Title</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="script.js"></script>
-</head>
+    <script src="js/script.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 <body>
     <div class="wrap">
-        <div>
-            <h1>이번주 시간표</h1>
-
-            <div class="search-wrap">
-                <div>
-                    <label for="grade-input">학년</label>
-                    <input id="grade-input" type="number" value="1" min="1" max="3" onchange="fetchTimetable()">
-                </div>
-                <div>
-                    <label for="classNm-input">반</label>
-                    <input id="classNm-input" type="number" value="1" min="1" onchange="fetchTimetable()">
-                </div>
-            </div>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                </tr>
-            </thead>
-            <tbody id="timetable-body"></tbody>
-        </table>
+       <header>
+            <div><a href="home.html">HOME</a></div>
+           <div>홍길동 - 대구소프트웨어마이스터고등학교 1-1</div>
+       </header>
+        <main>
+            <a href="meal.html">급식</a>
+            <a href="meal.html">TODO LIST</a>
+            <a href="timetable.html">시간표</a>
+        </main>
     </div>
 </body>
-<style>
-
-    .search-wrap {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    .search-wrap input {
-        width: 50px;
-    }
-
-    table {
-        width: 1200px;
-        border-collapse: collapse;
-        table-layout: fixed;
-    }
-
-    th:first-child, td:first-child {
-        width: 40px;
-    }
-
-    th, td {
-        border: 1px solid #000; /* 검정색 테두리 */
-        text-align: center;
-        padding: 3px 0;
-    }
-
-    th {
-        background-color: #f2f2f2; /* 헤더 배경색 */
-    }
-</style>
 </html>
